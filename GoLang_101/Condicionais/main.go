@@ -115,18 +115,24 @@ func compare_o_maior_valor_e_o_menor() {
 	fmt.Scanln(&b)
 	fmt.Println("Digite a sua terceiro valor")
 	fmt.Scanln(&c)
-	if a > b && a > c && b < c {
-		fmt.Println("O primeiro valor é o maior e segundo é o menor")
-	} else if a > b && a > c && c < b {
-		fmt.Println("O primeiro valor é o maior e terceiro é o menor")
-	} else if b > a && b > c && a < c {
-		fmt.Println("O segundo valor é o maior e terceiro é o menor")
-	} else if b > a && b > c && c < a {
-		fmt.Println("O segundo valor é o maior e primeiro é o menor")
-	} else if c > b && c > a && b < a {
-		fmt.Println("O terceiro valor é o maior primeiro é menor")
-	} else if c > b && c > a && a < b {
-		fmt.Println("O terceiro valor é o maior segundo é menor")
+	if a > b && a > c {
+		if b < c {
+			fmt.Println("O primeiro valor é o maior e segundo é o menor")
+		} else {
+			fmt.Println("O primeiro valor é o maior e terceiro é o menor")
+		}
+	} else if b > a && b > c {
+		if a < c {
+			fmt.Println("O segundo valor é o maior e primeiro é o menor")
+		} else {
+			fmt.Println("O segundo valor é o maior e terceiro é o menor")
+		}
+	} else if c > a && c > b {
+		if a < b {
+			fmt.Println("O terceiro valor é o maior e primeiro é o menor")
+		} else {
+			fmt.Println("O terceiro valor é o maior e segundo é o menor")
+		}
 	} else {
 		fmt.Println("Todos os valores são iguais")
 	}
