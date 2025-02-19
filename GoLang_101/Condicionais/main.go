@@ -138,6 +138,97 @@ func compare_o_maior_valor_e_o_menor() {
 	}
 }
 
-func main() {
+func Preco_Produtos() {
+	/*
+		Fácil 8: Faça um programa que pergunte o preço de três produtos e informe qual produto você
+			deve comprar, sabendo que a decisão é sempre o mais barato.
+	*/
+	var prod1, prod2, prod3, produto_mais_barato int
+	fmt.Println("Digite o valor do primeiro produto")
+	fmt.Scanln(&prod1)
+	fmt.Println("Digite o valor do segundo produto")
+	fmt.Scanln(&prod2)
+	fmt.Println("Digite o valor do terceira produto")
+	fmt.Scanln(&prod3)
+	if prod1 < prod2 && prod2 < prod3 {
+		produto_mais_barato = prod1
+	} else {
+		if prod2 < prod1 && prod2 < prod3 {
+			produto_mais_barato = prod2
+		} else {
+			produto_mais_barato = prod3
+		}
+	}
+	fmt.Println("O pruto mais para é o de valor: ", produto_mais_barato)
+}
 
+func saudacao_aluno() {
+	/*
+		Fácil 10- Faça um programa que pergunte em que turno você estuda.
+		 Peça para digitar M-matutino ou V-vespertino ou N-noturno.
+		 Imprima a mensagem “Bom dia!” ou  “Boa Noite” ou “Valor inválido”, conforme o caso.
+	*/
+	var turno string
+	fmt.Println("Digite o seu turno M para matutino V para vespentino e N para noturno")
+	fmt.Scanln(&turno)
+	if turno == "m" || turno == "M" {
+		fmt.Println("Seu turno é matutino")
+	} else if turno == "v" || turno == "V" {
+		fmt.Println("Seu turno é vespentino")
+	} else if turno == "n" || turno == "N" {
+		fmt.Println("Seu turno é noturno")
+	} else {
+		fmt.Println("Insira um character valido!")
+	}
+}
+
+func salario() {
+	/*
+
+		Difícil 11- As organizações CSM resolveram dar um aumento de salário aos seus colaboradores e lhe contrataram para desenvolver o programa que calculará os reajustes.
+
+			a. Faça um programa que recebe o salário de um colaborador e o reajuste segundo o seguinte critério, baseado no salário atual;
+			b. Salários até R$ 280,00 (incluindo): aumento de 20%;
+			c. Salários entre R$ 280,00 e R$700,00: aumento de 15%;
+			d. Salários entre R$ 700,00 e R$ 1500,00: aumento de 10%;
+			e. Salários de R$ 1500,00 em diante: aumento de 5%
+			Após o aumento ser realizado; informe na tela;
+
+			a. O salário antes do reajuste;
+			b. O percentual de aumento aplicado;
+			c. O valor do aumento;
+			d. O novo salário, após o aumento.
+	*/
+	var salario_atual, novo_salario, valor_aumento float64
+	var percentual_aumento int
+
+	fmt.Println("Digite o salario para calcular o reajuste: ")
+	fmt.Scanln(&salario_atual)
+	if salario_atual <= 280.00 {
+		percentual_aumento = 20
+	} else if salario_atual <= 700.00 {
+		percentual_aumento = 15
+	} else {
+		if salario_atual <= 1500.00 {
+			percentual_aumento = 10
+		} else {
+			percentual_aumento = 5
+		}
+	}
+	valor_aumento = salario_atual * (float64(percentual_aumento) / 100.0)
+	novo_salario = salario_atual + valor_aumento
+
+	// Exibe o salário antes do reajuste
+	fmt.Println("Salário antes do reajuste: R$ ", salario_atual)
+	// Exibe o percentual de aumento aplicado
+	fmt.Println("Percentual de aumento aplicado: ", percentual_aumento)
+	// Exibe o valor do aumento
+	fmt.Println("Valor do aumento: R$ ", valor_aumento)
+	// Exibe o novo salário após o aumento
+	fmt.Println("Novo salário após o aumento: R$ ", novo_salario)
+
+}
+
+func main() {
+	salario()
 }
